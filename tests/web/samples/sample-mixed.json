@@ -1,0 +1,140 @@
+{
+ "name": "sample-mixed",
+ "meta": {
+  "note": "dữ liệu giả lập: kích thước và khối lượng tự đặt, không lấy từ bộ dữ liệu thật nào",
+  "description": "about 150 items needing 3-4 containers, with no-stack and tippable lines",
+  "seed": 102
+ },
+ "container_types": [
+  {
+   "id": "20DC",
+   "L": 5.9,
+   "W": 2.35,
+   "H": 2.39,
+   "door_w": 2.34,
+   "door_h": 2.28,
+   "max_mass": 28000.0,
+   "cost": 0.6
+  },
+  {
+   "id": "40DC",
+   "L": 12.03,
+   "W": 2.35,
+   "H": 2.39,
+   "door_w": 2.34,
+   "door_h": 2.28,
+   "max_mass": 26700.0,
+   "cost": 1.0
+  },
+  {
+   "id": "40HC",
+   "L": 12.03,
+   "W": 2.35,
+   "H": 2.69,
+   "door_w": 2.34,
+   "door_h": 2.58,
+   "max_mass": 26500.0,
+   "cost": 1.05
+  },
+  {
+   "id": "45HC",
+   "L": 13.56,
+   "W": 2.35,
+   "H": 2.7,
+   "door_w": 2.34,
+   "door_h": 2.58,
+   "max_mass": 27700.0,
+   "cost": 1.2
+  }
+ ],
+ "items": [
+  {
+   "id": "L1",
+   "qty": 30,
+   "L": 1.13,
+   "W": 1.02,
+   "H": 0.73,
+   "mass": 245.1,
+   "tippable": false,
+   "tiers": 3,
+   "load": null
+  },
+  {
+   "id": "L2",
+   "qty": 40,
+   "L": 0.82,
+   "W": 0.58,
+   "H": 0.62,
+   "mass": 95.4,
+   "tippable": false,
+   "tiers": 4,
+   "load": 238.5
+  },
+  {
+   "id": "L3",
+   "qty": 20,
+   "L": 1.21,
+   "W": 1.01,
+   "H": 0.92,
+   "mass": 193.3,
+   "tippable": false,
+   "tiers": 1,
+   "load": 0.0
+  },
+  {
+   "id": "L4",
+   "qty": 10,
+   "L": 2.35,
+   "W": 1.05,
+   "H": 0.71,
+   "mass": 585.2,
+   "tippable": true,
+   "tiers": 2,
+   "load": 585.2
+  },
+  {
+   "id": "L5",
+   "qty": 6,
+   "L": 1.24,
+   "W": 0.96,
+   "H": 2.01,
+   "mass": 504.7,
+   "tippable": false,
+   "tiers": 1,
+   "load": 0.0
+  },
+  {
+   "id": "L6",
+   "qty": 20,
+   "L": 0.99,
+   "W": 0.7,
+   "H": 0.94,
+   "mass": 164.8,
+   "tippable": true,
+   "tiers": 3,
+   "load": null
+  },
+  {
+   "id": "L7",
+   "qty": 4,
+   "L": 2.89,
+   "W": 1.12,
+   "H": 0.93,
+   "mass": 954.3,
+   "tippable": false,
+   "tiers": 1,
+   "load": 0.0
+  },
+  {
+   "id": "L8",
+   "qty": 20,
+   "L": 0.55,
+   "W": 0.42,
+   "H": 0.47,
+   "mass": 47.5,
+   "tippable": false,
+   "tiers": 5,
+   "load": 285.0
+  }
+ ]
+}

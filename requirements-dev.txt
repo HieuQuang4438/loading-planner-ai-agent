@@ -1,0 +1,3 @@
+-r requirements.txt
+fpdf2>=2.8  # scripts/gen_demo.py: spec PDF
+Pillow>=10.1  # scripts/gen_demo.py: ảnh nhãn

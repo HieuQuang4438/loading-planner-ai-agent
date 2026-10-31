@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đăng nhập · Loading AI Planner</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect x='1' y='6' width='24' height='15' rx='2' fill='%231e3a8a'/%3E%3Cpath d='M5 9v9M9 9v9M13 9v9M17 9v9M21 9v9' stroke='%2393c5fd' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&amp;display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/static/shared/style.css">
+</head>
+<body data-mode="service" class="loginpage">
+<aside class="lg-brand">
+  <div class="lg-logo"><svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true"><rect class="logo-body" x="1" y="6" width="24" height="15" rx="2"/><path class="logo-stripes" d="M5 9v9M9 9v9M13 9v9M17 9v9M21 9v9" stroke-width="1.6" fill="none"/></svg><span>Loading AI Planner</span></div>
+  <div class="lg-pitch">
+    <p class="lg-head">Từ tài liệu hàng hóa tới phương án xếp container</p>
+    <p class="lg-sub">Trợ lý đọc bảng kê hàng, thông số kỹ thuật, ảnh nhãn và hỏi lại chỗ chưa rõ; bộ giải chọn container và vị trí từng kiện.</p>
+    <ul class="lg-points">
+      <li><svg class="lg-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Đọc nhiều tài liệu một lúc, ghi nguồn của từng giá trị</span></li>
+      <li><svg class="lg-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mọi phương án đều qua kiểm tra ràng buộc trước khi hiện</span></li>
+      <li><svg class="lg-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tối thiểu tổng cước, hoặc nhiều hàng nhất với container có sẵn</span></li>
+    </ul>
+  </div>
+  <svg class="lg-art" viewBox="0 0 349 280" aria-hidden="true">
+<polygon class="c-floor" points="162.7,128.4 339.3,230.4 270.1,270.3 93.5,168.3"/>
+<polygon class="c-wall" points="162.7,128.4 93.5,168.3 93.5,86.8 162.7,46.8"/>
+<polygon class="c-wall2" points="162.7,128.4 339.3,230.4 339.3,148.8 162.7,46.8"/>
+<line class="c-rib" x1="177.4" y1="134.2" x2="177.4" y2="58.0"/>
+<line class="c-rib" x1="192.1" y1="142.7" x2="192.1" y2="66.5"/>
+<line class="c-rib" x1="206.8" y1="151.2" x2="206.8" y2="75.0"/>
+<line class="c-rib" x1="221.6" y1="159.7" x2="221.6" y2="83.5"/>
+<line class="c-rib" x1="236.3" y1="168.2" x2="236.3" y2="92.0"/>
+<line class="c-rib" x1="251.0" y1="176.7" x2="251.0" y2="100.5"/>
+<line class="c-rib" x1="265.7" y1="185.2" x2="265.7" y2="109.0"/>
+<line class="c-rib" x1="280.4" y1="193.7" x2="280.4" y2="117.5"/>
+<line class="c-rib" x1="295.2" y1="202.2" x2="295.2" y2="126.0"/>
+<line class="c-rib" x1="309.9" y1="210.7" x2="309.9" y2="134.5"/>
+<line class="c-rib" x1="324.6" y1="219.2" x2="324.6" y2="143.0"/>
+<g class="bx a">
+<polygon class="t" points="162.7,94.4 198.0,114.8 165.6,133.5 130.3,113.1"/>
+<polygon class="f" points="198.0,148.8 165.6,167.5 165.6,133.5 198.0,114.8"/>
+<polygon class="s" points="130.3,147.1 165.6,167.5 165.6,133.5 130.3,113.1"/>
+</g>
+<g class="bx b">
+<polygon class="t" points="162.7,63.8 198.0,84.2 165.6,102.9 130.3,82.5"/>
+<polygon class="f" points="198.0,114.8 165.6,133.5 165.6,102.9 198.0,84.2"/>
+<polygon class="s" points="130.3,113.1 165.6,133.5 165.6,102.9 130.3,82.5"/>
+</g>
+<g class="bx b">
+<polygon class="t" points="128.8,114.0 164.1,134.3 130.3,153.9 94.9,133.5"/>
+<polygon class="f" points="164.1,168.3 130.3,187.9 130.3,153.9 164.1,134.3"/>
+<polygon class="s" points="94.9,167.5 130.3,187.9 130.3,153.9 94.9,133.5"/>
+</g>
+<g class="bx c">
+<polygon class="t" points="199.5,122.5 243.6,147.9 211.3,166.6 167.1,141.1"/>
+<polygon class="f" points="243.6,175.2 211.3,193.8 211.3,166.6 243.6,147.9"/>
+<polygon class="s" points="167.1,168.3 211.3,193.8 211.3,166.6 167.1,141.1"/>
+</g>
+<g class="bx a">
+<polygon class="t" points="199.5,95.2 243.6,120.8 211.3,139.4 167.1,113.9"/>
+<polygon class="f" points="243.6,147.9 211.3,166.6 211.3,139.4 243.6,120.8"/>
+<polygon class="s" points="167.1,141.1 211.3,166.6 211.3,139.4 167.1,113.9"/>
+</g>
+<g class="bx a">
+<polygon class="t" points="128.8,83.4 164.1,103.8 130.3,123.3 94.9,102.9"/>
+<polygon class="f" points="164.1,134.3 130.3,153.9 130.3,123.3 164.1,103.8"/>
+<polygon class="s" points="94.9,133.5 130.3,153.9 130.3,123.3 94.9,102.9"/>
+</g>
+<g class="bx a">
+<polygon class="t" points="165.6,142.0 209.8,167.5 175.9,187.0 131.8,161.6"/>
+<polygon class="f" points="209.8,194.7 175.9,214.2 175.9,187.0 209.8,167.5"/>
+<polygon class="s" points="131.8,188.8 175.9,214.2 175.9,187.0 131.8,161.6"/>
+</g>
+<g class="bx d">
+<polygon class="t" points="245.1,155.6 274.6,172.6 206.8,211.7 177.4,194.7"/>
+<polygon class="f" points="274.6,193.0 206.8,232.1 206.8,211.7 274.6,172.6"/>
+<polygon class="s" points="177.4,215.1 206.8,232.1 206.8,211.7 177.4,194.7"/>
+</g>
+<g class="bx c">
+<polygon class="t" points="165.6,114.8 209.8,140.3 175.9,159.8 131.8,134.3"/>
+<polygon class="f" points="209.8,167.5 175.9,187.0 175.9,159.8 209.8,140.3"/>
+<polygon class="s" points="131.8,161.6 175.9,187.0 175.9,159.8 131.8,134.3"/>
+</g>
+<g class="bx b">
+<polygon class="t" points="245.1,131.8 274.6,148.8 242.2,167.5 212.7,150.5"/>
+<polygon class="f" points="274.6,172.6 242.2,191.3 242.2,167.5 274.6,148.8"/>
+<polygon class="s" points="212.7,174.3 242.2,191.3 242.2,167.5 212.7,150.5"/>
+</g>
+<g class="bx b">
+<polygon class="t" points="276.0,156.4 302.5,171.8 270.1,190.4 243.6,175.1"/>
+<polygon class="f" points="302.5,209.1 270.1,227.8 270.1,190.4 302.5,171.8"/>
+<polygon class="s" points="243.6,212.6 270.1,227.8 270.1,190.4 243.6,175.1"/>
+</g>
+<line class="c-edge" x1="93.5" y1="168.3" x2="270.1" y2="270.3"/>
+<line class="c-edge" x1="339.3" y1="230.4" x2="270.1" y2="270.3"/>
+<line class="c-edge" x1="93.5" y1="86.8" x2="270.1" y2="188.7"/>
+<line class="c-edge" x1="339.3" y1="148.8" x2="270.1" y2="188.7"/>
+<line class="c-edge" x1="162.7" y1="46.8" x2="339.3" y2="148.8"/>
+<line class="c-edge" x1="162.7" y1="46.8" x2="93.5" y2="86.8"/>
+<line class="c-edge" x1="339.3" y1="230.4" x2="339.3" y2="148.8"/>
+<line class="c-edge" x1="270.1" y1="270.3" x2="270.1" y2="188.7"/>
+<line class="c-edge" x1="93.5" y1="168.3" x2="93.5" y2="86.8"/>
+  </svg>
+</aside>
+<main class="lg-main">
+  <div class="lg-card">
+    <h1>Đăng nhập</h1>
+    <p class="lg-lead">Dùng tài khoản người quản trị đã cấp cho bạn.</p>
+    <form id="form" class="loginform" autocomplete="on" novalidate>
+      <div class="field">
+        <label for="name">Tên</label>
+        <input id="name" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required autofocus>
+      </div>
+      <div class="field">
+        <label for="password">Mật khẩu</label>
+        <div class="lg-pass">
+          <input id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="error">
+          <button id="reveal" class="lg-reveal" type="button" aria-label="Hiện mật khẩu" aria-pressed="false">
+            <svg class="eye" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eyeoff" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M14.12 14.12a3 3 0 1 1-4.24-4.24M2 2l20 20"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="error" class="lg-error" role="alert"></div>
+      <button id="submit" class="primary block lg-submit" type="submit"><span class="lg-spin" aria-hidden="true"></span><span id="submitlabel">Đăng nhập</span></button>
+    </form>
+    <p class="lg-help">Chưa có tài khoản hoặc quên mật khẩu? Liên hệ người quản trị.</p>
+  </div>
+</main>
+<script>
+// Only a relative path of this site may be the target after login (no "//host", no "/\host").
+function target() {
+  const next = new URLSearchParams(location.search).get('next') || '/';
+  return /^\/(?![\/\\])/.test(next) ? next : '/';
+}
+// Client-side count only: the server's answer is the same for a wrong name, a wrong password and a locked name.
+const LOCK_HINT = 'Sai nhiều lần liên tiếp thì đăng nhập bị khóa 15 phút.';
+let failures = 0;
+const $ = (id) => document.getElementById(id);
+$('reveal').addEventListener('click', () => {
+  const shown = $('password').type === 'text';
+  $('password').type = shown ? 'password' : 'text';
+  $('reveal').setAttribute('aria-pressed', String(!shown));
+  $('reveal').setAttribute('aria-label', shown ? 'Hiện mật khẩu' : 'Ẩn mật khẩu');
+});
+function busy(on) {
+  $('submit').disabled = on;
+  $('submit').classList.toggle('busy', on);
+  $('submitlabel').textContent = on ? 'Đang đăng nhập…' : 'Đăng nhập';
+}
+function fail(text, field) {
+  $('error').textContent = text;
+  for (const id of ['name', 'password']) $(id).toggleAttribute('aria-invalid', id === field || field === 'both');
+  if (field) $(field === 'both' ? 'password' : field).focus();
+}
+$('form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!$('name').value.trim()) return fail('Nhập tên đăng nhập.', 'name');
+  if (!$('password').value) return fail('Nhập mật khẩu.', 'password');
+  fail('', null);
+  busy(true);
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: $('name').value, password: $('password').value }),
+    });
+    if (res.ok) { location.assign(target()); return; }
+    const body = await res.json().catch(() => ({}));
+    failures += 1;
+    $('password').value = '';
+    fail((body.message || 'Không đăng nhập được.') + (failures >= 3 ? ' ' + LOCK_HINT : ''), 'both');
+  } catch (err) {
+    fail('Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.', null);
+  }
+  busy(false);
+});
+</script>
+<script type="module">
+// The left panel plays one container of a sample run: pieces drop in one by one in the solver's order, the camera
+// swings slowly, then the loop starts again (P1).
+// SIMULATED DATA: the container is a run of the sample lot `sample-mixed` (E5, 10 s limit, delta 0.05, alpha 0.8, standard
+// table, local machine, 2026-10-19) through the service and the checker: container 1 of 3, 45HC, 62 pieces. The numbers
+// are for illustration, not measurements. [x, y, z, l, w, h, line] in metres, repo axes (x length to the door, y width,
+// z up), in the solver's placing order.
+// This page loads nothing from the app but style.css, so the scene is a self-contained copy of the viewer's look
+// (the shader of shared/groundgrid.js, a camera of 28 degrees). three.js comes from the CDN like index.html; if it cannot
+// load, the static SVG stays. prefers-reduced-motion shows the container loaded, still. The loop stops while the tab is
+// hidden and when the page is left.
+const BOX = {"type":"45HC","L":13.56,"W":2.35,"H":2.7,"n":3,"boxes":[[0,0,0,2.89,1.12,0.93,"L7"],[0,1.17,0,1.02,1.13,0.73,"L1"],[0,1.17,0.73,1.02,1.13,0.73,"L1"],[0,1.17,1.46,1.02,1.13,0.73,"L1"],[1.07,1.17,0,1.02,1.13,0.73,"L1"],[1.07,1.17,0.73,1.02,1.13,0.73,"L1"],[1.07,1.17,1.46,1.02,1.13,0.73,"L1"],[2.14,1.17,0,1.02,1.13,0.73,"L1"],[2.14,1.17,0.73,1.02,1.13,0.73,"L1"],[2.14,1.17,1.46,1.02,1.13,0.73,"L1"],[2.94,0,0,1.13,1.02,0.73,"L1"],[2.94,0,0.73,1.13,1.02,0.73,"L1"],[2.94,0,1.46,1.13,1.02,0.73,"L1"],[3.21,1.07,0,1.02,1.13,0.73,"L1"],[3.21,1.07,0.73,1.02,1.13,0.73,"L1"],[3.21,1.07,1.46,1.02,1.13,0.73,"L1"],[4.12,0,0,1.13,1.02,0.73,"L1"],[4.12,0,0.73,1.13,1.02,0.73,"L1"],[4.12,0,1.46,1.13,1.02,0.73,"L1"],[4.28,1.07,0,0.96,1.24,2.01,"L5"],[5.29,1.07,0,0.96,1.24,2.01,"L5"],[5.3,0,0,1.24,0.96,2.01,"L5"],[6.3,1.01,0,0.96,1.24,2.01,"L5"],[6.59,0,0,1.24,0.96,2.01,"L5"],[7.31,1.01,0,0.96,1.24,2.01,"L5"],[7.88,0,0,0.99,0.7,0.94,"L6"],[7.88,0,0.94,0.99,0.7,0.94,"L6"],[7.88,0,1.88,0.82,0.58,0.62,"L2"],[8.32,0.75,0,0.7,0.99,0.94,"L6"],[8.32,0.75,0.94,0.7,0.99,0.94,"L6"],[8.32,0.75,1.88,0.58,0.82,0.62,"L2"],[8.92,0,0,0.99,0.7,0.94,"L6"],[8.92,0,0.94,0.99,0.7,0.94,"L6"],[8.92,0,1.88,0.82,0.58,0.62,"L2"],[9.07,0.75,0,0.7,0.99,0.94,"L6"],[9.07,0.75,0.94,0.7,0.99,0.94,"L6"],[9.07,0.75,1.88,0.58,0.82,0.62,"L2"],[9.82,0.75,0,0.7,0.99,0.94,"L6"],[9.82,0.75,0.94,0.7,0.99,0.94,"L6"],[9.82,0.75,1.88,0.58,0.82,0.62,"L2"],[9.96,0,0,0.99,0.7,0.94,"L6"],[9.96,0,0.94,0.99,0.7,0.94,"L6"],[9.96,0,1.88,0.82,0.58,0.62,"L2"],[10.57,0.75,0,0.7,0.99,0.94,"L6"],[10.57,0.75,0.94,0.7,0.99,0.94,"L6"],[10.57,0.75,1.88,0.58,0.82,0.62,"L2"],[11,0,0,0.99,0.7,0.94,"L6"],[11,0,0.94,0.99,0.7,0.94,"L6"],[11,0,1.88,0.82,0.58,0.62,"L2"],[12.04,0,0,0.99,0.7,0.94,"L6"],[12.04,0,0.94,0.99,0.7,0.94,"L6"],[12.04,0,1.88,0.82,0.58,0.62,"L2"],[11.32,0.75,0,1.01,1.21,0.92,"L3"],[12.38,0.75,0,1.01,1.21,0.92,"L3"],[8.32,1.79,0,0.42,0.55,0.47,"L8"],[8.32,1.79,0.47,0.42,0.55,0.47,"L8"],[8.32,1.79,0.94,0.42,0.55,0.47,"L8"],[8.32,1.79,1.41,0.42,0.55,0.47,"L8"],[8.32,1.79,1.88,0.42,0.55,0.47,"L8"],[8.79,1.79,0,0.42,0.55,0.47,"L8"],[8.79,1.79,0.47,0.42,0.55,0.47,"L8"],[8.79,1.79,0.94,0.42,0.55,0.47,"L8"]]};
+const THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const lineHash = (id) => { let h = 0x811c9dc5; for (let i = 0; i < id.length; i++) { h ^= id.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h; };
+
+async function start() {
+  const brand = document.querySelector('.lg-brand'), art = brand.querySelector('.lg-art');
+  let THREE;
+  try { THREE = await import(THREE_URL); } catch (e) { return; }   // offline: the static SVG stays
+  const stage = document.createElement('div');
+  stage.className = 'lg-stage';
+  stage.innerHTML = `<canvas aria-hidden="true"></canvas><div class="lg-hud" aria-hidden="true"><span class="lg-dot"></span>Container 1 / ${BOX.n} · ${BOX.type}<span class="lg-count"><b>0</b> / ${BOX.boxes.length} kiện</span></div>`;
+  const canvas = stage.querySelector('canvas'), countEl = stage.querySelector('.lg-count b');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) { return; }   // no WebGL
+  art.after(stage);
+  brand.classList.add('live');
+  art.style.display = 'none';
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x1e3a8a, 1.1));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.9); sun.position.set(-6, 14, 10); scene.add(sun);
+  const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 400);
+
+  const { L, W, H } = BOX;
+  const world = new THREE.Group();   // repo axes -> three.js: X = x, Y = z, Z = -y; centred
+  world.position.set(-L / 2, 0, W / 2);
+  scene.add(world);
+
+  // Ground grid: the shader of shared/groundgrid.js (1 m minor, 5 m major, fwidth, fade with distance), light lines on the blue panel.
+  // The vertex shader and line() must stay identical to groundgrid.js: tests/web/test_grid_shader.py compares them.
+  const gridMat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false,
+    uniforms: { uCam: { value: new THREE.Vector3() } },
+    vertexShader: `varying vec3 vWorld;
+      void main() { vec4 w = modelMatrix * vec4(position, 1.0); vWorld = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
+    fragmentShader: `varying vec3 vWorld; uniform vec3 uCam;
+      float line(vec2 p, float s) { vec2 c = p / s; vec2 g = abs(fract(c - 0.5) - 0.5) / fwidth(c); return 1.0 - min(min(g.x, g.y), 1.0); }
+      void main() { float a = max(line(vWorld.xz, 1.0) * 0.10, line(vWorld.xz, 5.0) * 0.22) * (1.0 - smoothstep(10.0, 34.0, distance(uCam.xz, vWorld.xz)));
+        if (a < 0.005) discard; gl_FragColor = vec4(0.78, 0.85, 1.0, a); }`,
+  });
+  const grid = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), gridMat);
+  grid.rotation.x = -Math.PI / 2; grid.position.y = -0.003;
+  grid.onBeforeRender = (r, s, cam) => gridMat.uniforms.uCam.value.copy(cam.position);
+  scene.add(grid);
+
+  // Container: faint glass floor and two far walls, light outline, gold door frame (bars).
+  const glass = (w, h, op) => new THREE.Mesh(new THREE.PlaneGeometry(w, h),
+    new THREE.MeshBasicMaterial({ color: 0x93c5fd, transparent: true, opacity: op, side: THREE.DoubleSide, depthWrite: false }));
+  const floor = glass(L, W, 0.16); floor.rotation.x = -Math.PI / 2; floor.position.set(L / 2, 0.002, -W / 2);
+  const back = glass(W, H, 0.07); back.rotation.y = Math.PI / 2; back.position.set(0, H / 2, -W / 2);
+  const side = glass(L, H, 0.07); side.position.set(L / 2, H / 2, -W);
+  const frame = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(L, H, W)),
+    new THREE.LineBasicMaterial({ color: 0xbfdbfe, transparent: true, opacity: 0.75 }));
+  frame.position.set(L / 2, H / 2, -W / 2);
+  const gold = new THREE.MeshBasicMaterial({ color: 0xfacc15 }), t = 0.07;
+  const bar = (sx, sy, sz, x, y, z) => { const m = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz), gold); m.position.set(x, y, z); return m; };
+  world.add(floor, back, side, frame, bar(t, H, t, L, H / 2, 0), bar(t, H, t, L, H / 2, -W), bar(t, t, W, L, H, -W / 2), bar(t, t, W, L, 0, -W / 2));
+
+  const unit = new THREE.BoxGeometry(1, 1, 1), unitEdges = new THREE.EdgesGeometry(unit);
+  const pieces = BOX.boxes.map(([x, y, z, l, w, h, line]) => {
+    const h0 = lineHash(line);
+    const color = new THREE.Color().setHSL((h0 * 0.6180339887498949) % 1, 0.72, 0.52 + 0.06 * ((h0 >>> 13) % 3));
+    const g = new THREE.Group();
+    const mat = new THREE.MeshLambertMaterial({ color, transparent: true, opacity: 1 });
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 });
+    g.add(new THREE.Mesh(unit, mat), new THREE.LineSegments(unitEdges, edgeMat));
+    g.scale.set(l, h, w);
+    g.userData = { y: z + h / 2, mats: [mat, edgeMat] };
+    g.position.set(x + l / 2, z + h / 2, -(y + w / 2));
+    world.add(g);
+    return g;
+  });
+
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const STEP = 0.14, FALL = 0.45, HOLD = 3.2, FADE = 0.8;
+  const cycle = pieces.length * STEP + FALL + HOLD + FADE;
+  // Camera distance that keeps the whole container (bounding sphere) inside the frame, from the field of view and aspect.
+  const radius = Math.hypot(L, W, H) / 2;
+  const fitDist = () => {
+    const v = THREE.MathUtils.degToRad(camera.fov / 2), h = Math.atan(Math.tan(v) * camera.aspect);
+    return Math.max(radius / Math.sin(h) * 1.08, radius / Math.sin(v) * 0.62);
+  };
+  let clock = 0, last = 0, raf = 0;   // `clock` counts only the time the loop ran, so a hidden tab does not skip the animation
+  const draw = () => {
+    const s = still ? cycle - FADE - 0.01 : (clock / 1000) % cycle;
+    const fade = s > cycle - FADE ? 1 - (s - (cycle - FADE)) / FADE : 1;
+    let shown = 0;
+    pieces.forEach((g, i) => {
+      const k = Math.min(1, Math.max(0, (s - i * STEP) / FALL));
+      g.visible = k > 0;
+      if (!g.visible) return;
+      shown++;
+      const ease = 1 - Math.pow(1 - k, 3);
+      g.position.y = g.userData.y + (1 - ease) * 2.2;
+      g.userData.mats[0].opacity = Math.min(1, k * 2) * fade;
+      g.userData.mats[1].opacity = 0.9 * Math.min(1, k * 2) * fade;
+    });
+    countEl.textContent = shown;
+    const a = (still ? 0 : Math.sin(clock / 1000 * 0.12) * 0.22) + 0.5, d = fitDist();
+    camera.position.set(Math.sin(a) * d * 0.86, d * 0.5, Math.cos(a) * d * 0.86);
+    camera.lookAt(L * 0.08, H * 0.35, 0);
+    renderer.render(scene, camera);
+  };
+  const tick = (now) => { clock += now - last; last = now; draw(); raf = requestAnimationFrame(tick); };
+  const play = () => { if (still || raf) return; last = performance.now(); raf = requestAnimationFrame(tick); };
+  const pause = () => { cancelAnimationFrame(raf); raf = 0; };
+  const resize = () => {
+    const r = canvas.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    renderer.setSize(r.width, r.height, false);
+    camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+    if (!raf) draw();
+  };
+  new ResizeObserver(resize).observe(stage);
+  resize();
+  document.addEventListener('visibilitychange', () => (document.hidden ? pause() : play()));
+  addEventListener('pagehide', () => { pause(); renderer.dispose(); });
+  if (!document.hidden) play();
+}
+start();
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loading AI Planner</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Crect x='1' y='6' width='24' height='15' rx='2' fill='%231e3a8a'/%3E%3Cpath d='M5 9v9M9 9v9M13 9v9M17 9v9M21 9v9' stroke='%2393c5fd' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&amp;display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/static/shared/style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<!-- The app (docs/product/ux.md): screens by URL hash, drawn by /static/shared/planner.js. -->
+<body>
+<header class="topbar">
+  <a class="brand" href="#/lo-hang"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect class="logo-body" x="1" y="6" width="24" height="15" rx="2"/><path class="logo-stripes" d="M5 9v9M9 9v9M13 9v9M17 9v9M21 9v9" stroke-width="1.6" fill="none"/></svg><span>Loading AI Planner</span></a>
+  <nav class="topnav" aria-label="Chính"><a href="#/lo-hang" id="nav-lots"><i class="ic" data-ic="package"></i>Lô hàng</a></nav>
+  <span class="spacer"></span>
+  <div class="popwrap acct">
+    <button class="acctbtn ghost" id="acctbtn" aria-haspopup="menu">Tài khoản</button>
+    <div class="pop acctpop" id="acctmenu" role="menu" hidden><div class="acctname" id="acctname"></div>
+      <p class="muted acctnote">Lô, tài liệu, hội thoại và các lần chạy được lưu theo tài khoản.</p><button class="menuitem" id="logout" role="menuitem"><i class="ic" data-ic="log-out"></i>Đăng xuất</button></div>
+  </div>
+</header>
+<main id="app"></main>
+<!-- One container in 3D: the container screen, built here once and kept out of #app, which
+     every route redraws; planner.js shows it for #/lo/<id>/ket-qua/<run>/c/<n>. -->
+<section class="screen" id="scr-view" hidden>
+  <div id="vtool"></div>
+  <div id="vbody"><div id="center"></div><aside id="right"></aside></div>
+</section>
+<script type="module">
+import { fillIcons } from '/static/shared/icons.js';
+fillIcons();
+await import('/static/shared/planner.js');
+</script>
+</body>
+</html>

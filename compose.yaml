@@ -1,0 +1,25 @@
+# The web app in Docker on this machine. A deployment adds an overlay with an HTTPS proxy in front.
+#   docker compose up -d --build      then open http://localhost:8000
+# `.env` next to this file gives the Gemini keys and the admin (PLANNER_ADMIN_*); the lines below win over it.
+services:
+  app:
+    build: .
+    image: loading-ai-planner:local
+    env_file: .env
+    environment:
+      PLANNER_DB: /data/app.db
+      PLANNER_ORIGINS: http://localhost:${PLANNER_PORT:-8000}
+      FORWARDED_ALLOW_IPS: 172.30.0.0/24  # the subnet below: only the proxy in this network is trusted
+    ports:
+      - "127.0.0.1:${PLANNER_PORT:-8000}:8000"  # local only; the deploy overlay removes it (the proxy is the only way in)
+    volumes:
+      - data:/data
+
+volumes:
+  data:
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24

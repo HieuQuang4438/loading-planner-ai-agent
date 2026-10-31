@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+*.zip
+
+# ghi chú cá nhân, không commit
+*.me.md
+
+# dữ liệu người dùng: tài liệu upload, DB, run; không commit
+data/uploads/
+data/*.db
+data/*.db-shm
+data/*.db-wal
+runs/
+
+# bộ eval sinh bằng scripts/gen_eval.py, kết quả eval
+data/eval/

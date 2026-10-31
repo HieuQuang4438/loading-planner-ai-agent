@@ -1,0 +1,182 @@
+{
+  "simulated": true,
+  "seed": null,
+  "name": "Lô xuất T11 — điện gia dụng",
+  "lines": [
+    {
+      "id": "SKU-A",
+      "sku": "SKU-A",
+      "unit": "carton",
+      "qty": 200,
+      "dims": {
+        "L": 0.6,
+        "W": 0.4,
+        "H": 0.45
+      },
+      "mass": 12.5,
+      "posture": "tippable",
+      "stacking": {
+        "kind": "limited",
+        "tiers": 5
+      },
+      "fragile": false,
+      "stated": [
+        "dims",
+        "mass",
+        "qty",
+        "stacking"
+      ]
+    },
+    {
+      "id": "SKU-B",
+      "sku": "SKU-B",
+      "unit": "carton",
+      "qty": 80,
+      "dims": {
+        "L": 0.8,
+        "W": 0.6,
+        "H": 0.5
+      },
+      "mass": 26.0,
+      "posture": "upright",
+      "stacking": {
+        "kind": "free"
+      },
+      "fragile": false,
+      "stated": [
+        "dims",
+        "mass",
+        "posture",
+        "qty"
+      ]
+    },
+    {
+      "id": "SKU-C",
+      "sku": "SKU-C",
+      "unit": "carton",
+      "qty": 50,
+      "dims": {
+        "L": 0.5,
+        "W": 0.5,
+        "H": 0.6
+      },
+      "mass": 18.0,
+      "posture": "upright",
+      "stacking": {
+        "kind": "limited",
+        "tiers": 2
+      },
+      "fragile": true,
+      "stated": [
+        "dims",
+        "fragile",
+        "mass",
+        "posture",
+        "qty",
+        "stacking"
+      ]
+    },
+    {
+      "id": "SKU-D",
+      "sku": "SKU-D",
+      "unit": "pallet",
+      "qty": 10,
+      "dims": {
+        "L": 1.2,
+        "W": 1.0,
+        "H": 1.5
+      },
+      "mass": 160.0,
+      "posture": "upright",
+      "stacking": {
+        "kind": "none"
+      },
+      "fragile": false,
+      "stated": [
+        "dims",
+        "mass",
+        "qty",
+        "stacking"
+      ]
+    },
+    {
+      "id": "SKU-A-2",
+      "sku": "SKU-A",
+      "unit": "carton",
+      "qty": 40,
+      "dims": {
+        "L": 0.6,
+        "W": 0.4,
+        "H": 0.45
+      },
+      "mass": 12.5,
+      "posture": "tippable",
+      "stacking": {
+        "kind": "limited",
+        "tiers": 5
+      },
+      "fragile": false,
+      "stated": [
+        "dims",
+        "mass",
+        "qty",
+        "stacking"
+      ]
+    }
+  ],
+  "excluded": [
+    "SKU-E"
+  ],
+  "traps": [
+    {
+      "trap": "dup_height",
+      "on": [
+        "SKU-A"
+      ],
+      "expect": "Two packing-list rows of one code, heights differ; the spec has the true height. Ask, do not split or pick silently."
+    },
+    {
+      "trap": "net_mass",
+      "on": [
+        "SKU-A",
+        "SKU-B"
+      ],
+      "expect": "The packing list gives net mass, the spec gross; pack with gross."
+    },
+    {
+      "trap": "mm_unitless",
+      "on": [
+        "SKU-B"
+      ],
+      "expect": "Size in mm and a mass without unit; read the size, take the unit of the mass from the spec or ask."
+    },
+    {
+      "trap": "missing_mass",
+      "on": [
+        "SKU-C"
+      ],
+      "expect": "The packing list has no mass; take it from the spec or label with its source, never invent one."
+    },
+    {
+      "trap": "label",
+      "on": [
+        "SKU-C"
+      ],
+      "expect": "Handling marks only on the label photo become posture, stacking and fragile."
+    },
+    {
+      "trap": "pallet",
+      "on": [
+        "SKU-D"
+      ],
+      "expect": "Quantity and size are per pallet: pack pallets, not cartons with pallet size."
+    },
+    {
+      "trap": "not_shipped",
+      "on": [
+        "SKU-E"
+      ],
+      "expect": "A code only the spec mentions, marked not in this shipment: keep it out of the lot."
+    }
+  ]
+}

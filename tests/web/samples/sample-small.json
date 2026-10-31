@@ -1,0 +1,96 @@
+{
+ "name": "sample-small",
+ "meta": {
+  "note": "dữ liệu giả lập: kích thước và khối lượng tự đặt, không lấy từ bộ dữ liệu thật nào",
+  "description": "about 20 items that fit one container",
+  "seed": 101
+ },
+ "container_types": [
+  {
+   "id": "20DC",
+   "L": 5.9,
+   "W": 2.35,
+   "H": 2.39,
+   "door_w": 2.34,
+   "door_h": 2.28,
+   "max_mass": 28000.0,
+   "cost": 0.6
+  },
+  {
+   "id": "40DC",
+   "L": 12.03,
+   "W": 2.35,
+   "H": 2.39,
+   "door_w": 2.34,
+   "door_h": 2.28,
+   "max_mass": 26700.0,
+   "cost": 1.0
+  },
+  {
+   "id": "40HC",
+   "L": 12.03,
+   "W": 2.35,
+   "H": 2.69,
+   "door_w": 2.34,
+   "door_h": 2.58,
+   "max_mass": 26500.0,
+   "cost": 1.05
+  },
+  {
+   "id": "45HC",
+   "L": 13.56,
+   "W": 2.35,
+   "H": 2.7,
+   "door_w": 2.34,
+   "door_h": 2.58,
+   "max_mass": 27700.0,
+   "cost": 1.2
+  }
+ ],
+ "items": [
+  {
+   "id": "L1",
+   "qty": 6,
+   "L": 1.22,
+   "W": 0.94,
+   "H": 0.99,
+   "mass": 332.0,
+   "tippable": false,
+   "tiers": 3,
+   "load": null
+  },
+  {
+   "id": "L2",
+   "qty": 8,
+   "L": 0.79,
+   "W": 0.63,
+   "H": 0.64,
+   "mass": 86.7,
+   "tippable": false,
+   "tiers": 2,
+   "load": 130.1
+  },
+  {
+   "id": "L3",
+   "qty": 4,
+   "L": 1.46,
+   "W": 1.14,
+   "H": 1.04,
+   "mass": 427.7,
+   "tippable": false,
+   "tiers": 1,
+   "load": 0.0
+  },
+  {
+   "id": "L4",
+   "qty": 2,
+   "L": 2.03,
+   "W": 0.84,
+   "H": 0.52,
+   "mass": 334.3,
+   "tippable": false,
+   "tiers": 1,
+   "load": 0.0
+  }
+ ]
+}
