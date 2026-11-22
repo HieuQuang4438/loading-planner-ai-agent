@@ -3,6 +3,7 @@
 A web app that plans how to load cargo into shipping containers. An AI agent (Gemini) reads the messy documents a shipment comes with — Excel packing lists, PDF specs, photos of carton labels — and turns them into one confirmed shipment, with the source of every value; an optimisation engine then lays the cargo out in 3D, either at the lowest freight cost or as much cargo as a given set of containers holds.
 
 Live demo: <https://loading-ai-planner.duckdns.org> (accounts are made by an admin; ask for one).
+![The live demo](docs/images/web-page.png)
 
 ## Why
 
